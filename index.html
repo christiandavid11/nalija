@@ -29,12 +29,14 @@
 				<h2 id="invite-title">So, what are the details?</h2>
 				<p>Fill these in and send the invitation on its way.</p>
 				<p>Please fill it up before October hits.</p>
+				<!-- Invitation details form -->
 				<form id="date-form">
 					<div class="form-grid">
 						<label>What<select name="What"><option>Dinner date</option></select></label>
 						<label>Where<select name="Where"><option>Near you</option></select></label>
 						<label>When<input id="date-input" name="When" type="date" required></label>
 						<label>Who is with you?<input name="Who" type="text" value="Me and You" readonly required></label>
+						<label>Comments<textarea name="Comments" rows="3" placeholder="Add any extra notes here..."></textarea></label>
 					</div>
 					<button type="submit">Send the date details</button>
 					<p class="success" id="success" role="status"></p>
