@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>A Date at the Door</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<main class="page">
+		<section class="story" aria-labelledby="title">
+			<header>
+				<p class="eyebrow">A tiny love story</p>
+				<h1 id="title">A Date at the Door</h1>
+				<p class="subtitle">One knock. Two bears. One very important question.</p>
+			</header>
+			<section class="reader" aria-label="Interactive comic reader">
+				<div class="reader-status"><span id="current-panel" aria-live="polite">01 / 06</span><div class="progress" aria-hidden="true"><span class="progress-bar"></span></div></div>
+				<section class="comic" aria-label="Comic strip">
+					<article class="panel" data-panel="1"><span class="panel-number">01</span><div class="scene"><img class="character" src="images/green%20frog.png" alt="Dudu the green frog"><div class="house"><div class="roof"></div><div class="window"></div><div class="door"></div></div><div class="knock">KNOCK!</div><div class="ground"></div></div><h2>Dudu arrives</h2><p>Dudu the frog walks up to Bubu's house with a hopeful little grin.</p></article>
+					<article class="panel" data-panel="2" hidden><span class="panel-number">02</span><div class="scene"><div class="house"><div class="roof"></div><div class="door"></div></div><img class="character bubu" src="images/white%20cat.png" alt="Bubu the white cat"><div class="ground"></div></div><div class="speech">Who's there?</div></article>
+					<article class="panel" data-panel="3" hidden><span class="panel-number">03</span><div class="scene"><img class="character" src="images/green%20frog.png" alt="Dudu the green frog"><div class="ground"></div></div><div class="speech">What, Where, When.</div></article>
+					<article class="panel" data-panel="4" hidden><span class="panel-number">04</span><div class="scene"><img class="character bubu" src="images/white%20cat.png" alt="Bubu the white cat"><div class="ground"></div></div><div class="speech">What, when, where, who?</div></article>
+					<article class="panel" data-panel="5" hidden><span class="panel-number">05</span><div class="scene"><img class="character" src="images/green%20frog.png" alt="Dudu the green frog"><img class="character bubu" src="images/white%20cat.png" alt="Bubu the white cat"><div class="ground"></div></div><h2>The important details</h2><p>Dudu has a plan. He just hopes Bubu will say yes.</p></article>
+					<article class="panel" data-panel="6" hidden><span class="panel-number">06</span><div class="scene"><img class="character" src="images/green%20frog.png" alt="Dudu the green frog"><img class="character bubu" src="images/white%20cat.png" alt="Bubu the white cat"><div class="ground"></div></div><div class="speech">Please say yes!</div></article>
+				</section>
+				<nav class="reader-controls" aria-label="Reader controls"><button id="previous-panel" type="button">Back</button><button class="next-button" id="next-panel" type="button">Next page</button><span></span></nav>
+			</section>
+			<section class="invite" id="invite" aria-labelledby="invite-title" hidden>
+				<h2 id="invite-title">So, what are the details?</h2>
+				<p>Fill these in and send the invitation on its way.</p>
+				<form id="date-form">
+					<div class="form-grid">
+						<label>What<select name="What"><option>Dinner date</option></select></label>
+						<label>Where<select name="Where"><option>Near you</option></select></label>
+						<label>When<input name="When" type="datetime-local" required></label>
+						<label>Who is with you?<input name="Who" type="text" value="Me and You" readonly required></label>
+					</div>
+					<button type="submit">Send the date details</button>
+					<p class="success" id="success" role="status"></p>
+				</form>
+			</section>
+		</section>
+	</main>
+	<script src="script.js"></script>
+</body>
+</html>
