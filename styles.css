@@ -77,11 +77,27 @@ h1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.35rem, 12vw, 5.3
 .invite[hidden] { display: none; }
 .invite h2 { margin: 0 0 8px; font-family: Georgia, serif; font-size: clamp(1.7rem, 8vw, 2rem); }
 .invite > p { margin: 0 0 22px; }
+.answer-group { margin: 0 0 18px; }
+.answer-label { margin: 0 0 10px; font-weight: 900; }
+.answer-options {
+	display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: flex-start;
+}
+.answer-option {
+	min-width: 74px; min-height: 40px; padding: 8px 14px; border: 2px solid var(--ink); border-radius: 999px; background: #f9efe9; font-weight: 900; font-size: .95rem; transition: transform .18s ease, box-shadow .18s ease, background .18s ease, outline .15s ease;
+}
+.answer-option.selected {
+	background: #f9efe9;
+	box-shadow: 0 5px 0 rgba(46,39,49,.12);
+	outline: 3px solid rgba(46,39,49,.32);
+	outline-offset: 2px;
+}
+.answer-option:hover { transform: translateY(-2px) scale(0.98); }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 label { display: grid; gap: 7px; font-weight: 800; }
 label:first-child { grid-column: 1 / -1; }
-input, select { width: 100%; min-height: 48px; padding: 10px 12px; border: 2px solid var(--ink); border-radius: 5px; color: var(--ink); background: white; }
-input:focus, select:focus, button:focus-visible { outline: 4px solid rgba(217,104,104,.35); outline-offset: 2px; }
+input, select, textarea { width: 100%; min-height: 48px; padding: 10px 12px; border: 2px solid var(--ink); border-radius: 5px; color: var(--ink); background: white; }
+textarea { min-height: 96px; resize: vertical; }
+input:focus, select:focus, textarea:focus, button:focus-visible { outline: 4px solid rgba(217,104,104,.35); outline-offset: 2px; }
 .invite button { width: 100%; margin-top: 20px; }
 .success { min-height: 1.4em; margin: 14px 0 0; font-weight: 800; }
 
