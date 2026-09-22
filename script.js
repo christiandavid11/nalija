@@ -7,6 +7,7 @@ const previousButton = document.querySelector("#previous-panel");
 const nextButton = document.querySelector("#next-panel");
 const invite = document.querySelector("#invite");
 const form = document.querySelector("#date-form");
+const dateInput = document.querySelector("#date-input");
 const success = document.querySelector("#success");
 let currentPanel = 0;
 
@@ -34,6 +35,11 @@ nextButton.addEventListener("click", () => {
 document.addEventListener("keydown", (event) => {
 	if (event.key === "ArrowLeft") showPanel(currentPanel - 1);
 	if (event.key === "ArrowRight") showPanel(currentPanel + 1);
+});
+
+dateInput.addEventListener("input", () => {
+		const selectedDate = new Date(`${dateInput.value}T00:00:00`);
+		dateInput.setCustomValidity(selectedDate.getMonth() === 10 ? "" : "Please choose a date in November.");
 });
 
 form.addEventListener("submit", async (event) => {
