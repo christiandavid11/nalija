@@ -26,7 +26,7 @@ button { cursor: pointer; }
 	background-size: 34px 34px, 47px 47px, auto;
 }
 
-.story { width: min(100%, 700px); margin: 0 auto; }
+.story { display: flex; flex-direction: column; width: min(100%, 700px); margin: 0 auto; }
 header { text-align: center; margin-bottom: 22px; }
 .eyebrow { margin: 0 0 6px; font-size: .76rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
 h1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.35rem, 12vw, 5.3rem); line-height: .94; }
@@ -75,6 +75,8 @@ h1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2.35rem, 12vw, 5.3
 
 .invite { margin: 32px auto 0; padding: clamp(22px, 5vw, 44px); border: 3px solid var(--ink); border-radius: 8px; background: var(--paper); box-shadow: var(--shadow); animation: panel-in .28s ease both; }
 .invite[hidden] { display: none; }
+.itinerary { order: 2; }
+.invite { order: 3; }
 .invite h2 { margin: 0 0 8px; font-family: Georgia, serif; font-size: clamp(1.7rem, 8vw, 2rem); }
 .invite > p { margin: 0 0 22px; }
 .answer-group { margin: 0 0 18px; }
@@ -101,6 +103,31 @@ input:focus, select:focus, textarea:focus, button:focus-visible { outline: 4px s
 .invite button { width: 100%; margin-top: 20px; }
 .success { min-height: 1.4em; margin: 14px 0 0; font-weight: 800; }
 
+.itinerary {
+	margin: 34px auto 0;
+	padding: clamp(22px, 5vw, 44px);
+	border: 3px solid var(--ink);
+	border-radius: 8px;
+	background: #f8c0b0;
+	box-shadow: var(--shadow);
+}
+.itinerary-heading { margin-bottom: 24px; }
+.itinerary-heading .eyebrow { margin-bottom: 8px; }
+.itinerary-heading h2 { margin: 0 0 8px; font-family: Georgia, serif; font-size: clamp(1.8rem, 8vw, 2.45rem); line-height: 1; }
+.itinerary-heading > p:last-child { margin: 0; line-height: 1.5; }
+.itinerary-days { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.day-plan { padding: 18px 15px 8px; border: 2px solid var(--ink); border-radius: 6px; background: var(--paper); }
+.day-heading { padding-bottom: 13px; border-bottom: 2px solid var(--ink); }
+.day-heading > span { display: block; margin-bottom: 4px; color: var(--rose); font-size: .76rem; font-weight: 900; letter-spacing: .14em; }
+.day-heading h3 { margin: 0; font-family: Georgia, serif; font-size: 1.45rem; }
+.day-heading p { margin: 3px 0 0; font-size: .84rem; font-weight: 800; }
+.timeline { position: relative; margin: 0; padding: 8px 0 0; list-style: none; }
+.timeline:before { content: ""; position: absolute; top: 16px; bottom: 19px; left: 4px; border-left: 2px dotted var(--ink); opacity: .45; }
+.timeline li { position: relative; display: grid; grid-template-columns: 62px 1fr; gap: 7px; padding: 9px 0 9px 0; font-size: .83rem; line-height: 1.3; }
+.timeline li:before { content: ""; width: 8px; height: 8px; position: absolute; top: 14px; left: 0; border: 2px solid var(--ink); border-radius: 50%; background: var(--yellow); }
+.timeline time { padding-left: 16px; font-size: .72rem; font-weight: 900; white-space: nowrap; }
+.timeline li span { font-weight: 700; }
+
 @keyframes panel-in { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: translateX(0); } }
 
 @media (max-width: 520px) {
@@ -111,6 +138,7 @@ input:focus, select:focus, textarea:focus, button:focus-visible { outline: 4px s
 	.reader-controls .next-button { grid-column: 1 / -1; grid-row: 1; }
 	.form-grid { grid-template-columns: 1fr; gap: 13px; }
 	label:first-child { grid-column: auto; }
+	.itinerary-days { grid-template-columns: 1fr; gap: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

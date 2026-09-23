@@ -6,6 +6,7 @@ const progressBar = document.querySelector(".progress-bar");
 const previousButton = document.querySelector("#previous-panel");
 const nextButton = document.querySelector("#next-panel");
 const invite = document.querySelector("#invite");
+const itinerary = document.querySelector("#itinerary");
 const form = document.querySelector("#date-form");
 const dateInput = document.querySelector("#date-input");
 const commentsInput = document.querySelector("#comments-input");
@@ -81,9 +82,12 @@ answerButtons.forEach((button) => {
 
 function showPanel(index) {
 	currentPanel = Math.max(0, Math.min(index, panelCount - 1));
+	const isLastPanel = currentPanel === panelCount - 1;
 	panels.forEach((panel, panelIndex) => {
 		panel.hidden = panelIndex !== currentPanel;
 	});
+	invite.hidden = !isLastPanel;
+	itinerary.hidden = !isLastPanel;
 	panelNumber.textContent = `${String(currentPanel + 1).padStart(2, "0")} / ${String(panelCount).padStart(2, "0")}`;
 	progressBar.style.width = `${((currentPanel + 1) / panelCount) * 100}%`;
 	previousButton.disabled = currentPanel === 0;
@@ -93,8 +97,7 @@ function showPanel(index) {
 previousButton.addEventListener("click", () => showPanel(currentPanel - 1));
 nextButton.addEventListener("click", () => {
 	if (currentPanel === panelCount - 1) {
-		invite.hidden = false;
-		invite.scrollIntoView({ behavior: "smooth", block: "start" });
+		itinerary.scrollIntoView({ behavior: "smooth", block: "start" });
 		return;
 	}
 	showPanel(currentPanel + 1);
