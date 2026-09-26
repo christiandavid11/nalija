@@ -36,10 +36,12 @@ function updateFormValidation() {
 		dateInput.setCustomValidity("");
 	}
 
-	const commentsRequired = selectedAnswer === "Maybe";
+	const commentsRequired = selectedAnswer === "Maybe" || selectedAnswer === "No";
 	commentsInput.required = commentsRequired;
 	if (selectedAnswer === "Maybe") {
 		commentsInput.setCustomValidity(commentsInput.value.trim() ? "" : "Please add a note if you are unsure.");
+	} else if (selectedAnswer === "No") {
+		commentsInput.setCustomValidity(commentsInput.value.trim() ? "" : "Please add a comment if you are declining.");
 	} else {
 		commentsInput.setCustomValidity("");
 	}
@@ -89,6 +91,8 @@ dateInput.addEventListener("input", () => {
 commentsInput.addEventListener("input", () => {
 	if (answerInput.value === "Maybe") {
 		commentsInput.setCustomValidity(commentsInput.value.trim() ? "" : "Please add a note if you are unsure.");
+	} else if (answerInput.value === "No") {
+		commentsInput.setCustomValidity(commentsInput.value.trim() ? "" : "Please add a comment if you are declining.");
 	}
 });
 
