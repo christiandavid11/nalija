@@ -47,37 +47,6 @@ function updateFormValidation() {
 
 answerButtons.forEach((button) => {
 	button.addEventListener("click", () => setAnswerChoice(button.dataset.answer));
-
-	if (button.dataset.answer === "No") {
-		button.addEventListener("pointerenter", (event) => {
-			const screenWidth = window.innerWidth;
-			const screenHeight = window.innerHeight;
-			const buttonWidth = button.offsetWidth || 74;
-			const buttonHeight = button.offsetHeight || 40;
-			let randomX = Math.random() * Math.max(10, screenWidth - buttonWidth - 20);
-			let randomY = Math.random() * Math.max(10, screenHeight - buttonHeight - 20);
-			const pointerX = event.clientX;
-			const pointerY = event.clientY;
-			let attempts = 0;
-
-			while (attempts < 500) {
-				const distX = Math.abs(randomX + buttonWidth / 2 - pointerX);
-				const distY = Math.abs(randomY + buttonHeight / 2 - pointerY);
-				if (distX > 220 && distY > 160) {
-					break;
-				}
-				randomX = Math.random() * Math.max(10, screenWidth - buttonWidth - 20);
-				randomY = Math.random() * Math.max(10, screenHeight - buttonHeight - 20);
-				attempts += 1;
-			}
-
-			button.style.position = "fixed";
-			button.style.left = `${randomX}px`;
-			button.style.top = `${randomY}px`;
-			button.style.transform = "scale(0.82)";
-			button.style.zIndex = "999";
-		});
-	}
 });
 
 function showPanel(index) {
